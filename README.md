@@ -15,8 +15,9 @@ API RESTful que simula uma comunicação com uma máquina de snacks
         parametro(s): token string (40)
         método: GET
         url: dns/ecartao/saldo.php?token=<token>
-        retorno: JSON com array de objetos. Indice "saldo" com um valor decimal em caso de sucesso, ou "msg" 
-        com uma string caso não haja sucesso ou "ERROR" também string com a mensagem correspondente ao erro.
+        retorno: JSON com array de objetos. Indice "saldo" com um valor decimal em caso de sucesso, ou 
+        "msg" com uma string caso não haja sucesso ou "ERROR" também string com a mensagem correspondente 
+        ao erro.
 
     - CONSULTAR EXTRATO
         parametro(s): token string (40)
