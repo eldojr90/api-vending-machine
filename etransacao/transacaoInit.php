@@ -17,21 +17,17 @@ $msg = null;
 //vars para armazenar dados das requisições
 $token = null;
 
+//vars genéricas
+$idCartao = null;
+
 if(isset($_GET["token"])){
     
     $token = $_GET["token"]; 
-
+    $idCartao = $cd->findIdByToken($token);
+    
     if($td->validaCreditoDiario($token)){
-        
-        $idCartao = $cd->findIdByToken($token);
         $t = new Transacao(null,5.5,null,1,$idCartao);
-        
-        if(!$td->insert($t)){
-            $msg = "Ocorreu um erro interno na inserção do crédito diário. Contatar admin.";
-        }
-
+        if(!$td->insert($t)){$msg = "Ocorreu um erro interno na inserção do crédito diário. Contatar admin.";}
     }
 
-}else{
-    $msg = "Requisição inválida! Verifique os parâmetros necessários para sua requisição em README.md";
-}
+}else{$msg = "Requisição inválida! Verifique os parâmetros necessários para sua requisição em README.md";}

@@ -4,12 +4,13 @@ require_once 'cartaoInit.php';
 
 $extrato = $cd->getExtrato($token);
 
-if($extrato == null || count($extrato) == 0){
-    $msg = "Erro interno ao pesquisar extrato. Contatar admin.";
-}
+if($extrato === null || count($extrato) == 0){$msg = "Erro interno ao pesquisar extrato. Contatar admin.";}
+
+if(!isset($idCartao)){$msg = "Cartão inválido! Token inexistente.";}
 
 $extrato["saldo"] = (double) $saldo;
 $tipo = stripos(strtolower($msg),"erro")!==false?"ERROR":null;
+$tipo = !isset($msg)?$tipo:"msg";
 
 $temp = [];
 
