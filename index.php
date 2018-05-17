@@ -15,9 +15,19 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
 
     <style>
-        h2{
-            text-align:center !important;
+        body,#txt{
+            padding-top:3em;
         }
+
+        #ghl{
+            padding:5px;
+            border-radius:100%;
+        }
+
+        #ghl:hover{
+            background-color:rgb(255,100,100);
+        }
+
     </style>
 
 
@@ -27,7 +37,20 @@
 
     <div class="container">
         <div class="row">
-            <h2 >API RESTful Vending Machine</h2>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6" id="tit">
+                <h3 align="center">API RESTful Vending Machine</h3>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2" id="txt">
+                <a href="https://github.com/eldojr90/api-vending-machine-php#api-vending-machine-php"
+                 title="github.com/eldojr90/api-vending-machine-php#api-vending-machine-php">
+                <img src="gh.png" id="ghl" alt=""></a></p>
+            </div>
+            <div class="col-sm-5"></div>
         </div>
     </div>
     

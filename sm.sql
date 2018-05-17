@@ -1,6 +1,6 @@
-CREATE schema vm default CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE schema sm default CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-USE vm;
+USE sm;
 
 create table cartao(
 c_id int not null primary key auto_increment,
