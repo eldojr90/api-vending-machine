@@ -36,6 +36,8 @@ API RESTful que simula uma comunicação com uma máquina de snacks
 
 >Testes
 
+    unitários: "./app-tests" utilizando a ferramenta PHPUnit contida em "vendor/bin"	
+
     - CONSULTAR SALDO
     - CONSULTAR EXTRATO
     - REALIZAR COMPRA
