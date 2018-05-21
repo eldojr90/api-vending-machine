@@ -1,6 +1,8 @@
 # api-vending-machine-php
 API RESTful que simula uma comunicação com uma máquina de snacks
 
+>Script para criação da base de dados: sm.sql
+
 >Para testar a API é necessário inicialmente utilizar um dos tokens dos cartões disponíveis*
     
     - f7d2186e4bbbe8512b425407cce6d193e59795a0
