@@ -3,7 +3,6 @@
 namespace App\Model\DAO;
 
 use App\Aux\Connection, 
-    App\Model\Transacao,
     PDO;
 
 class CartaoDAO{
@@ -149,8 +148,9 @@ class CartaoDAO{
         $ps = $this->con->prepare($sql);
         $ps->bindParam(1,$token);
         $ps->execute();
+        $row = $ps->fetch(PDO::FETCH_OBJ);
 
-        return ($ps->fetch(PDO::FETCH_OBJ))->c_id;
+        return $row->c_id;
 
     }
 

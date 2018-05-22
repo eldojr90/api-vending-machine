@@ -12,10 +12,10 @@ class Transacao{
 
     function __construct($id,$valor,$horario,$tipo,$idCartao){
         $this->id = $id;
-        $this->valor = $valor;
         $this->horario = $horario;
         $this->tipo = $tipo;
         $this->idCartao = $idCartao;
+        $this->setValor($valor);
     }
 
     /**
@@ -74,7 +74,9 @@ class Transacao{
      */ 
     public function setValor($valor)
     {
-        $this->valor = $valor;
+        if(!($valor === 2 || $valor === 5.5)){
+            throw \InvalidArgumentException;
+        }
 
         return $this;
     }

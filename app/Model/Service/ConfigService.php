@@ -25,9 +25,9 @@ class ConfigService{
     }
 
     public function verificaRegistros(){
-
-        return (boolean)(($this->con->query("SELECT (SELECT count(*) 
-                                                     FROM cartao) = 0 v"))->fetch(PDO::FETCH_OBJ))->v;
+        $st = $this->con->query("SELECT (SELECT count(*) FROM cartao) = 0 v");
+        $row = $st->fetch(PDO::FETCH_OBJ);
+        return (boolean)$row->v;
 
     }
 
