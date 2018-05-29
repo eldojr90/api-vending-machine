@@ -13,10 +13,8 @@ class Connection{
         try{
             return new PDO($ddb["dsn"],$ddb["username"],$ddb["password"]);
         }catch(PDOException $e){
-            echo "Erro na conexão com o banco de dados. Contatar admin.";
+            return "ebc ".$e->getMessage();
         }
-        
-        return null;
         
     }
 

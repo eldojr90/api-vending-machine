@@ -25,9 +25,18 @@ if(isset($_GET["token"])){
     $token = $_GET["token"]; 
     $idCartao = $cd->findIdByToken($token);
     
-    if($td->validaCreditoDiario($token)){
-        $t = new Transacao(null,5.5,null,1,$idCartao);
-        if(!$td->insert($t)){$msg = "Ocorreu um erro interno na inserção do crédito diário. Contatar admin.";}
-    }
+    
+    if(isset($idCartao)){
+        if($td->validaCreditoDiario($token)){
+                $t = new Transacao(null,5.5,null,1,$idCartao);
+                if(!$td->insert($t)){
+                    $msg = !isset($msg)?"Erro ao inserir crédito diário de R$ 5,50.":$msg;
+                }
+        }
+    }else{$msg = !isset($msg)?"Token inexistente!.":$msg;}
+    
 
-}else{$msg = "Requisição inválida! Verifique os parâmetros necessários para sua requisição em README.md";}
+}else{$msg = !isset($msg)?
+    "Requisição inválida! Verifique os parâmetros necessários para sua requisição em README.md":
+    $msg;
+}

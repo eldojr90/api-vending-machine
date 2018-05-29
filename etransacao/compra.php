@@ -7,29 +7,25 @@ use App\Model\Transacao,
 
 $valor = 0;
 
-if(isset($idCartao)){
+if($_GET["valor"]){
 
-    if($_GET["valor"]){
+    $valor = (double) $_GET["valor"];
 
-        $valor = (double) $_GET["valor"];
+    $idCartao = $cd->findIdByToken($token);
+    $t = new Transacao(null,$valor,null,0,$idCartao);
 
-        $idCartao = $cd->findIdByToken($token);
-        $t = new Transacao(null,$valor,null,0,$idCartao);
-
-        if($valor == 2 || $valor == 5.5){
-            if($cd->validaDebitos($token)){
-                if($cd->validaSaldo($token,$valor)){$msg = $td->insert($t)?"Compra realizada com sucesso!":
-                                        "Ocorreu um erro interno na inserção da compra. Contatar admin.";
-                }else{$msg = "Saldo insuficiente.";}
-            }else{
-                $msg = $td->insert($t)?"Compra realizada com sucesso!":
-                "Ocorreu um erro interno na inserção da compra. Contatar admin.";
-            }
-        }else{$msg = "Valor não permitido. Valores permitidos: 2 ou 5.5";}
-        
-    }else{$msg = "Parâmetro 'valor' não informado. Consulte README.md.";}
-
-}else{$msg = "Cartão inválido! Token inexistente.";}
+    if($valor == 2 || $valor == 5.5){
+        if($cd->validaDebitos($token)){
+            if($cd->validaSaldo($token,$valor)){$msg = $td->insert($t)?"Compra realizada com sucesso!":
+                                    "Ocorreu um erro interno na inserção da compra. Contatar admin.";
+            }else{$msg = !isset($msg)?"Saldo insuficiente.":$msg;}
+        }else{
+            $msg = $td->insert($t)?"Compra realizada com sucesso!":
+            "Ocorreu um erro interno na inserção da compra. Contatar admin.";
+        }
+    }else{$msg = !isset($msg)?"Valor não permitido. Valores permitidos: 2 ou 5.5":$msg;}
+    
+}else{$msg = !isset($msg)?"Parâmetro 'valor' não informado. Consulte README.md.":$msg;}
 
 $tipo = (stripos(strtolower($msg),"erro")!==false?"erro":"msg");
 

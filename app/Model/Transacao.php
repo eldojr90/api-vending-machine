@@ -74,11 +74,7 @@ class Transacao{
      */ 
     public function setValor($valor)
     {
-        if(!($valor === 2 || $valor === 5.5)){
-            throw \InvalidArgumentException;
-        }
-
-        return $this;
+        $this->valor = $valor;
     }
 
     /**
