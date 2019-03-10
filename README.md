@@ -37,14 +37,3 @@ API RESTful que simula uma comunicação com uma máquina de snacks
         url: dns/etransacao/compra.php?token=<token>&valor=<valor>
         retorno: JSON com array de objetos. Indice "msg" com uma string ou "ERROR" com a mensagem 
         correspondente ao erro.
-
->Testes
-
-    unitários: "./app-tests" utilizando a ferramenta PHPUnit contida em "vendor/bin"	
-
-    - CONSULTAR SALDO
-    - CONSULTAR EXTRATO
-    - REALIZAR COMPRA
-    - INFORMAR TOKEN INVÁLIDO NOS 3 ENDPOINTS
-    - INFORMAR VALOR INCORRETO NA COMPRA (DIFERENTE DE 2 OU 5.5)
-    - REALIZAR COMPRAS ATÉ ESGOTAR O SALDO
