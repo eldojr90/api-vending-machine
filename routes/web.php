@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use Illuminate\Http\Request;
+
 $router->group(['prefix' => 'api'], function() use ($router){
     
     //cartão

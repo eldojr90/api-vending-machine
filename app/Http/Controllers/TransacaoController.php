@@ -6,22 +6,10 @@ use App\Cartao;
 use App\Transacao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Lumen\Routing\Controller;
+use App\Http\Controllers\Config\Controller;
 
-class TransacaoController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        Transacao::recarga();
-        Cartao::atualizaSaldo();
-    }
-
+class TransacaoController extends Controller {
+    
     public function compra(Request $request) {
         $val = floatval($request->valor); 
         $saldo = Auth::user()->saldo;
